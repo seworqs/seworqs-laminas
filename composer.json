@@ -1,7 +1,7 @@
 {
   "name": "seworqs/seworqs-laminas",
   "description": "SEWorqs module with helpfull Laminas functionality",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "type": "laminas-module",
   "licence": "MIT",
   "require": {
