@@ -1,0 +1,39 @@
+{
+  "name": "seworqs/seworqs-laminas",
+  "description": "SEWorqs module with helpfull Laminas functionality",
+  "version": "0.0.2",
+  "type": "laminas-module",
+  "licence": "MIT",
+  "require": {
+    "php": "^8.2",
+    "doctrine/doctrine-module": "^6.1",
+    "doctrine/doctrine-orm-module": "^6.1",
+    "doctrine/orm": "^2.11.1",
+    "ext-intl": "*",
+    "laminas/laminas-db": "^2.17.0",
+    "laminas/laminas-cache-storage-adapter-filesystem": "^2.4",
+    "laminas/laminas-cache": "^3.12.0",
+    "laminas/laminas-form": "^3.19",
+    "laminas/laminas-i18n": "^2.10",
+    "laminas/laminas-mail": "^2.25",
+    "laminas/laminas-mvc-plugin-flashmessenger": "^1.10",
+    "laminas/laminas-navigation": "^2.19",
+    "laminas/laminas-paginator": "^2.18",
+    "laminas/laminas-permissions-acl": "^2.16",
+    "laminas/laminas-serializer": "^2.17",
+    "laminas/laminas-session": "^2.16.0",
+    "moneyphp/money": "^4.5",
+    "nesbot/carbon": "^3.0",
+    "ramsey/uuid": "^4.7"
+  },
+  "autoload": {
+    "psr-4": {
+      "Seworqs\\Laminas\\": "src/"
+    },
+    "files": [
+      "src/Helper/EntityDataHelper.php",
+      "src/Helper/FinancialCalculations.php",
+      "src/Helper/TranslationHelpers.php"
+    ]
+  }
+}

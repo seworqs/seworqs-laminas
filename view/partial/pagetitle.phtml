@@ -1,0 +1,30 @@
+<?php
+/**
+ * @var \Laminas\Mvc\Plugin\FlashMessenger\View\Helper\FlashMessenger $flash
+ */
+$this->headTitle($this->title);
+
+?>
+<div class="row mb-4">
+    <div class="col">
+        <h1 class="display-5"><?php echo $this->title; ?>
+            <?php if ($this->subTitle) { ?>
+            <span class="text-muted"> <?php echo $this->subTitle; ?></span>
+            <?php } ?>
+        </h1>
+    </div>
+    <?php if ($this->buttons) { ?>
+    <div class="col-4 d-flex align-items-center justify-content-end">
+        <?php
+        foreach ($this->buttons as $btn) {
+            // Fix empty class
+            $btn['classes'] = isset($btn['classes']) ? $btn['classes'] : ['btn-primary'];
+
+            // Merge defaults.
+            $classes = array_merge(['ms-2 btn'], $btn['classes']);
+            ?><a class="<?php echo join(' ', $classes); ?>" href="<?php echo $btn['href']; ?>"><?php echo $btn['text']; ?></a><?php
+        }
+        ?>
+    </div>
+    <?php } ?>
+</div>

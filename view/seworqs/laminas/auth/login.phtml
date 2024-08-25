@@ -1,0 +1,57 @@
+<?php
+
+/**
+ * @var Laminas\View\Renderer\PhpRenderer $this
+ */
+
+// Get title/subtitle or defaults.
+$title = isset($this->title) ? $this->title : tc('Login', 'Login');
+$subTitle = isset($this->subTitle) ? $this->subTitle : null;
+
+// Page title.
+echo $this->partial('seworqs/partial/pagetitle', ['title' => $title, 'subTitle' => $subTitle]);
+
+$form = $this->frm;
+?>
+<div class="container">
+    <div class="row">
+        <div class="col"></div>
+        <div class="col-md-6 col-lg-4 col-xl-4 col-8">
+            <?php
+            echo $this->partial('seworqs/partial/flashmessages');
+
+            $form->prepare();
+            echo $this->form()->openTag($form);
+            ?>
+
+            <div class="row form-floating mb-4">
+                <?php
+                echo $this->formElement($form->get('UserName'));
+                echo $this->formLabel($form->get('UserName'));
+                echo $this->formElementHelpOrErrors($form->get('UserName'));
+                ?>
+            </div>
+
+            <div class="row form-floating mb-4">
+                <?php
+                echo $this->formElement($form->get('Password'));
+                echo $this->formLabel($form->get('Password'));
+                echo $this->formElementHelpOrErrors($form->get('Password'));
+                ?>
+            </div>
+
+            <div class="row form-floating mb-4">
+                <?php
+                echo $this->formElement($form->get('btnSubmit'));
+                ?>
+            </div>
+
+            <?php
+            echo $this->formElement($form->get('csrf'));
+            echo $this->form()->closeTag();
+            ?>
+
+        </div>
+        <div class="col"></div>
+    </div>
+</div>

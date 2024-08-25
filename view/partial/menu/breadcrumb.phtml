@@ -1,0 +1,25 @@
+<?php
+
+$links = [];
+
+foreach ($this->pages as $ix => $page) {
+    if ($ix === 0) {
+        continue;
+    }
+
+    // Determine href.
+    if ($page->route) {
+        $href = $this->url($page->route);
+    } elseif ($page->uri) {
+        $href = $this->escapeHtml($page->uri);
+    } else {
+        $href = "#";
+    }
+
+    $links[] = sprintf('<a href="%s">%s</a>', $href, $page->label);
+}
+if (count($links) > 0) {
+    ?>
+    <div><?php echo join(' > ', $links); ?></div>
+    <?php
+}

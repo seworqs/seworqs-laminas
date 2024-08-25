@@ -1,0 +1,166 @@
+<?php
+
+/**
+ * @var \Seworqs\Laminas\Service\MenuStateService $menuState
+ */
+$menuState = $this->menuState();
+
+$depth = isset($this->depth) ? $this->depth : 0;
+
+$ulAttributes = $this->htmlAttributes(['class' => ['nav']]);
+
+if ($depth === 0) {
+    $ulAttributes->add('class', 'flex-column');
+} else {
+    $ulAttributes->add('class', 'ms-4');
+}
+
+if ($this->collapseID) {
+    $ulAttributes->add('id', $this->collapseID);
+    $ulAttributes->add('class', 'collapse');
+    if ($menuState->isItemExpanded($this->collapseID)) {
+        $ulAttributes->add('class', 'show');
+    }
+}
+
+/**
+ * @var \Laminas\View\Renderer\PhpRenderer $this.
+ */
+
+// Acl and session.
+$acl = $this->acl();
+//$session = $this->session();
+$user = $this->currentUser();
+
+// Start output buffer to see if anything was printed.
+$hasContent = false;
+
+// Indexing the pages. We need it later-on.
+$ixPage = 0;
+
+// Start output buffer.
+ob_start();
+
+// Loop through container (nav).
+foreach ($this->container as $page) {
+    // Get custom properties.
+    $customProperties = $page->getCustomProperties() ?: [];
+
+    // Determine page type.
+    $menuItemType = isset($customProperties['custom']['type']) ? $customProperties['custom']['type'] : 'link';
+
+    // When nothing is defined, we'll allow it.
+    $allowed = true;
+
+    // Check resource.
+    if ($page->resource) {
+        // Check on ACL.
+        $allowed = $acl->isAllowed($user->getRole(), $page->getResource(), $page->getPrivilege());
+    }
+
+    // Skip it?
+    if (! $allowed) {
+        continue;
+    }
+
+    $liAttributes = $this->htmlAttributes(['class' => 'nav-item']);
+
+    $linkAttributes = $this->htmlAttributes(['class' => ['nav-link', 'd-flex', 'align-items-center']]);
+
+    if ($page->pages) {
+
+        if ($menuState->isItemCollapsed($page->collapseID)) {
+            $linkAttributes->add('class', 'collapsed');
+        }
+        $linkAttributes->add('data-bs-toggle', 'collapse');
+        $linkAttributes->add('data-bs-target', '#' . $page->collapseID);
+    }
+
+    // Determine href.
+    if ($page->route) {
+        $href = $this->url($page->route);
+    } elseif ($page->uri) {
+        $href = $this->escapeHtml($page->uri);
+    } else {
+        $href = "#";
+    }
+
+?>
+    <li <?php echo $liAttributes; ?>>
+        <?php
+        switch ($menuItemType) {
+            case 'header':
+                if ($page->visible) {
+                    $headerAttributes = $this->htmlAttributes(['class' => ['navbar-heading', 'd-flex', 'justify-content', 'align-items-center', 'px-3', 'text-body-secondary', 'text-uppercase']]);
+                    if ($depth === 0 && $ixPage !== 0) {
+                        $headerAttributes->add('class', 'mt-4');
+                    }
+        ?>
+                    <h6 <?php echo $headerAttributes; ?>>
+                        <span><?php echo $page->label; ?></span>
+                    </h6>
+                <?php
+                }
+                break;
+            case 'break':
+                if ($hasContent) {
+                    //echo $customProperties['custom']['html'];
+                ?>
+                    <hr class="my-3" />
+                <?php
+                    $hasContent = false;
+                }
+                break;
+            case 'link':
+            case 'page':
+            default:
+                ?>
+                <a href="<?php echo $href; ?>" <?php echo $linkAttributes; ?>>
+                    <?php
+                    if ($page->icon) {
+                        echo $page->icon;
+                    }
+
+                    echo $this->escapeHtml($page->label);
+
+                    if ($page->pages && $page->icon_collapse) {
+                        echo $page->icon_collapse;
+                    }
+                    ?>
+                </a>
+        <?php
+                break;
+        }
+        ?>
+
+
+        <?php
+        if ($page->pages) {
+            $newDepth = ($menuItemType === 'header') ? $depth : $depth + 1;
+            echo $this->partial('partial/menu/bootstrap', ['container' => $page->getPages(), 'depth' => $newDepth, 'collapseID' => $page->collapseID]);
+        }
+        ?>
+    </li>
+<?php
+
+    // Ok, we have had some content.
+    $hasContent = true;
+
+    // Index page.
+    $ixPage++;
+}
+
+// Get contents from buffer.
+$contents = ob_get_contents();
+
+// End and clean output buffer.
+ob_end_clean();
+
+// Check contents.
+if ($contents) {
+?>
+    <ul <?php echo $ulAttributes; ?>>
+        <?php echo $contents; ?>
+    </ul>
+<?php
+}

@@ -1,0 +1,194 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Seworqs Laminas\n"
+"POT-Creation-Date: 2024-08-21 20:44+0200\n"
+"PO-Revision-Date: 2024-08-21 20:51+0200\n"
+"Last-Translator: Sven Franke <sven.franke@seworqs.eu>\n"
+"Language-Team: sven.franke@seworqs.eu\n"
+"Language: nl_NL\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.4.4\n"
+"X-Poedit-Basepath: ../../..\n"
+"X-Poedit-KeywordsList: t:1;t2:1,2,3;tc:1c,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: languages\n"
+
+#: config/module.config.php:100 src/Form/Login.php:73
+msgid "Login"
+msgstr "Inloggen"
+
+#: config/module.config.php:107
+msgid "Logout"
+msgstr "Uitloggen"
+
+#: src/Controller/AuthController.php:74
+msgid "Registration completed!"
+msgstr "Regostratoe voltooid!"
+
+#: src/Controller/AuthController.php:87
+msgid "Invalid form. Try again."
+msgstr "Ongeldig formulier. Probeer het nog een keer."
+
+#: src/Controller/AuthController.php:138
+msgid "Your account is blocked."
+msgstr "Uw account is geblokkeerd."
+
+#: src/Controller/AuthController.php:143
+msgid "We could not log you in."
+msgstr "We konden u niet inloggen."
+
+#: src/Filter/DateTimeLocal.php:37
+msgid "Invalid date time format."
+msgstr "Omgeldige datum-tijdnotatie."
+
+#: src/Form/Login.php:49 src/Form/Login.php:54 src/Form/Registration.php:71
+msgid "User name"
+msgstr "Gebruikersnaam"
+
+#: src/Form/Login.php:61 src/Form/Login.php:66 src/Form/Registration.php:78
+#: src/Form/Registration.php:83
+msgid "Password"
+msgstr "Wachtwoord"
+
+#: src/Form/Login.php:97 src/Form/Login.php:116 src/Form/Registration.php:126
+#: src/Form/Registration.php:145 src/Form/Registration.php:164
+#: src/Form/Registration.php:183
+msgid "This is a required field."
+msgstr "Dit is een verplicht veld."
+
+#: src/Form/Registration.php:54
+msgid "Your email address"
+msgstr "Uw e-mailadres"
+
+#: src/Form/Registration.php:55
+msgid "This will also be your login name"
+msgstr "Dit wordt ook uw inlognaam"
+
+#: src/Form/Registration.php:59
+msgid "Email Address"
+msgstr "E-mailadres"
+
+#: src/Form/Registration.php:66
+msgid "Name"
+msgstr "Naam"
+
+#: src/Form/Registration.php:67
+msgid "We will use this name to address you."
+msgstr "We gebruiken de naam voor weergave van uw naam."
+
+#: src/Form/Registration.php:90 src/Form/Registration.php:95
+msgid "Confirm Password"
+msgstr "Bevestig Wachtwoord"
+
+#: src/Form/Registration.php:102
+msgid "Register"
+msgstr "Registreren"
+
+#: src/Form/Registration.php:191
+msgid "Passwords are not the same."
+msgstr "De wachtwoorden komen niet overeen."
+
+#: src/Helper/EntityDataHelper.php:36
+msgctxt "Boolean"
+msgid "Active"
+msgstr "Actief"
+
+#: src/Helper/EntityDataHelper.php:36
+msgctxt "Boolean"
+msgid "Inactive"
+msgstr "Inactief"
+
+#: src/Helper/EntityDataHelper.php:38
+msgctxt "Boolean"
+msgid "On"
+msgstr "Aan"
+
+#: src/Helper/EntityDataHelper.php:38
+msgctxt "Boolean"
+msgid "Off"
+msgstr "Uit"
+
+#: src/Helper/EntityDataHelper.php:39
+msgctxt "Boolean"
+msgid "Right"
+msgstr "Goed"
+
+#: src/Helper/EntityDataHelper.php:39
+msgctxt "Boolean"
+msgid "Wrong"
+msgstr "Fout"
+
+#: src/Helper/EntityDataHelper.php:40
+msgctxt "Boolean"
+msgid "True"
+msgstr "Waar"
+
+#: src/Helper/EntityDataHelper.php:40
+msgctxt "Boolean"
+msgid "False"
+msgstr "Onwaar"
+
+#: src/Helper/EntityDataHelper.php:41
+msgctxt "Boolean"
+msgid "Yes"
+msgstr "Ja"
+
+#: src/Helper/EntityDataHelper.php:41
+msgctxt "Boolean"
+msgid "No"
+msgstr "Nee"
+
+#: src/Model/Entity/Trait/Gender.php:41
+msgctxt "Gender"
+msgid "F"
+msgstr "V"
+
+#: src/Model/Entity/Trait/Gender.php:42
+msgctxt "Gender"
+msgid "Female"
+msgstr "Vrouwelijk"
+
+#: src/Model/Entity/Trait/Gender.php:46
+msgctxt "Gender"
+msgid "M"
+msgstr "M"
+
+#: src/Model/Entity/Trait/Gender.php:47
+msgctxt "Gender"
+msgid "Male"
+msgstr "Mannelijk"
+
+#: src/Model/Entity/Trait/Gender.php:52
+msgctxt "Gender"
+msgid "X"
+msgstr "X"
+
+#: src/Model/Entity/Trait/Gender.php:53
+msgctxt "Gender"
+msgid "Neuter"
+msgstr "Onzijdig"
+
+#: src/Service/CurrentUserService.php:118
+#: src/Service/CurrentUserService.php:119
+msgid "Guest"
+msgstr "Gast"
+
+#: src/Validator/UniqueUserNameValidator.php:25
+msgid "User name is not available."
+msgstr "Gebruikersnaam is niet beschikbaar."
+
+#: view/seworqs/laminas/auth/login.phtml:8
+msgctxt "Login"
+msgid "Login"
+msgstr "Log in"
+
+#: view/seworqs/laminas/auth/register.phtml:7
+msgctxt "Register"
+msgid "Register"
+msgstr "Registreer"
+
+#: view/seworqs/laminas/auth/register.phtml:8
+msgid "an account"
+msgstr "een account"

@@ -1,0 +1,57 @@
+<?php
+/**
+ * @var Laminas\View\Renderer\PhpRenderer $this
+ * @var Laminas\Mvc\Plugin\FlashMessenger\View\Helper\FlashMessenger $flash
+ */
+
+// Get flash messenger.
+$flash = $this->flashmessenger();
+
+// All namespaces. There's no way (YET?!) to get them from the messenger.
+$namespaces = ['default', 'info', 'error', 'success', 'warning'];
+
+// We use the output buffer to determine if there were any messages.
+// There is not an easy way to check if there are any messages
+// without doing some looping.
+
+// Start output buffer.
+ob_start();
+
+// Handle flash messages.
+// Loop namespaces.
+foreach ($namespaces as $namespace) {
+    // Check for current messages.
+    if ($flash->hasCurrentMessages($namespace)) {
+        // Display current message.
+        echo $flash->renderCurrent($namespace);
+        // Remove current message.
+        $flash->getPluginFlashMessenger()->clearCurrentMessages($namespace);
+    }
+
+    // Check for messages.
+    if ($flash->hasMessages($namespace)) {
+        // Display message.
+        echo $flash->render($namespace);
+        // Remove current message.
+        $flash->getPluginFlashMessenger()->clearMessages($namespace);
+    }
+}
+
+// Get contents.
+$contents = ob_get_contents();
+
+// Clean and end buffer.
+ob_end_clean();
+
+// Check for content.
+if ($contents) {
+    ?>
+    <div class="row mb-4">
+        <?php
+            // Echo buffer.
+            echo $contents;
+        ?>
+    </div>
+    <?php
+}
+?>

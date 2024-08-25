@@ -1,0 +1,28 @@
+<?php
+
+use Seworqs\Permission\Acl;
+
+if (! isset($this->navigation_key)) {
+    $this->navigation_key = 'seworqs_menu';
+}
+
+?>
+<div id="sidebarMenu" class="offcanvas-md offcanvas-start sidebar border border-right col-md-3 col-lg-2 p-0 pb-4 shadow bg-body-tertiary">
+    <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="sidebarMenuLabel">SEWorqs</h5>
+        <button type="button" ½class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#sidebarMenu" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body d-md-flex flex-column p-0 pt-lg-3 overflow-y-auto">
+        <?php
+        // Get session and ACL.
+        // $session = $this->session('nfc');
+        // $acl = $this->acl();
+
+        // Because this is a partial, the ACL is handled in the partial itself.
+        //When we use something more standard, we need to set the ACL/Role on the navigation.
+
+        echo $this->navigation($this->navigation_key)->menu()->setPartial('seworqs/partial/menu/bootstrap')->render();
+        //;
+        ?>
+    </div>
+</div>

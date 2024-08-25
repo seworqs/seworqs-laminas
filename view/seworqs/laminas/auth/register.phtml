@@ -1,0 +1,76 @@
+<?php
+
+/**
+ * @var Laminas\View\Renderer\PhpRenderer $this
+ */
+
+$title    = isset($this->title) ? $this->title : tc('Register', 'Register');
+$subTitle = isset($this->subTitle) ? $this->subTitle : t('an account');
+
+// Page title.
+echo $this->partial('partial/pagetitle', ['title' => $title, 'subTitle' => $subTitle]);
+
+$form = $this->frm;
+?>
+<div class="container">
+    <div class="row">
+        <div class="col"></div>
+        <div class="col-md-6 col-lg-4 col-xl-4 col-8">
+            <?php
+            echo $this->partial('seworqs/partial/flashmessages');
+
+            $form->prepare();
+            echo $this->form()->openTag($form);
+            ?>
+
+            <div class="row form-floating mb-4">
+                <?php
+                echo $this->formElement($form->get('UserName'));
+                echo $this->formLabel($form->get('UserName'));
+                echo $this->formElementHelpOrErrors($form->get('UserName'));
+                ?>
+            </div>
+
+            <div class="row form-floating mb-4">
+                <?php
+                echo $this->formElement($form->get('UserDisplayName'));
+                echo $this->formLabel($form->get('UserDisplayName'));
+                echo $this->formElementHelpOrErrors($form->get('UserDisplayName'));
+                ?>
+            </div>
+
+            <div class="row form-floating mb-4">
+                <?php
+                echo $this->formElement($form->get('Password'));
+                echo $this->formLabel($form->get('Password'));
+                echo $this->formElementHelpOrErrors($form->get('Password'));
+                ?>
+            </div>
+
+            <div class="row form-floating mb-4">
+                <?php
+                echo $this->formElement($form->get('ConfirmPassword'));
+                echo $this->formLabel($form->get('ConfirmPassword'));
+                echo $this->formElementHelpOrErrors($form->get('ConfirmPassword'));
+                ?>
+            </div>
+
+
+            <div class="row form-floating mb-4">
+                <?php
+                echo $this->formElement($form->get('btnSubmit'));
+                ?>
+            </div>
+
+            <div class="row mb-4 text-center">
+                <p>Already a member? <a href="<?php echo $this->url('login'); ?>">Login</a></p>
+            </div>
+
+            <?php
+            echo $this->formElement($form->get('csrf'));
+            echo $this->form()->closeTag();
+            ?>
+        </div>
+        <div class="col"></div>
+    </div>
+</div>

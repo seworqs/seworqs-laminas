@@ -1,0 +1,9 @@
+<?php
+// Get current user.
+$user = $this->currentUser();
+
+// Check logged in.
+if ($user->isLoggedIn()) {
+    // Display name and role.
+    echo sprintf('%s (%s)', $user->getDisplayName(), $user->getRole());
+}
