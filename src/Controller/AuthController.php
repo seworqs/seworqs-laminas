@@ -31,14 +31,11 @@ class AuthController extends BaseActionController
 
         $account = $accountService->createNew();
 
-        //$form = new Registration($entityManager, 'frmRegistration');
         $form = $this->getFormElementManager()->get(Registration::class, [
             'name' => 'frmRegistration',
             'method' => 'POST',
-            'action' => $this->url()->fromRoute('logout')
+            'action' => $this->url()->fromRoute('register')
         ]);
-        // $form->setAttribute('action', $this->url()->fromRoute('register'));
-        // $form->setAttribute('method', 'post');
 
         $form->bind($account);
 
