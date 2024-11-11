@@ -220,7 +220,6 @@ return [
         ]
     ],
     'view_manager'       => [
-        'layout'              => 'seworqs/layout/leftmenu',
         'strategies'          => [
             'ViewJsonStrategy'
         ],

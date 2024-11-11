@@ -7,7 +7,7 @@ namespace Seworqs\Laminas\Model\Entity\Trait;
 trait EmailAddress
 {
     /**
-     * @ORM\Column (name="email_address", type="string", length=200)
+     * @ORM\Column (name="email_address", type="String", length=200)
      */
     protected $emailAddress;
 

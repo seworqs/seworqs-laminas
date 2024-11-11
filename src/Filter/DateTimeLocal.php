@@ -14,7 +14,7 @@ class DateTimeLocal extends AbstractFilter
     public function __construct($options = [])
     {
 
-        // For now. It's an DateTimeZone or a string (representing time zone) or not set (default UTC).
+        // For now. It's an DateTimeZone or a String (representing time zone) or not set (default UTC).
         if (isset($options['timezone'])) {
             if ($options['timezone'] instanceof \DateTimeZone) {
                 return $options['timezone'];

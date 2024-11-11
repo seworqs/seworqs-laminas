@@ -7,7 +7,7 @@ namespace Seworqs\Laminas\Model\Entity\Trait;
 trait Address
 {
     /**
-     * @ORM\Column (name="street_name", type="string", length=256, nullable=false)
+     * @ORM\Column (name="street_name", type="String", length=256, nullable=false)
      */
     private $streetName;
     /**
@@ -15,23 +15,23 @@ trait Address
      */
     private $buildingNumber;
     /**
-     * @ORM\Column (name="building_number_suffix", type="string", length=25, nullable=true)
+     * @ORM\Column (name="building_number_suffix", type="String", length=25, nullable=true)
      */
     private $buildingNumberSuffix;
     /**
-     * @ORM\Column (name="postal_code", type="string", length=25, nullable=true)
+     * @ORM\Column (name="postal_code", type="String", length=25, nullable=true)
      */
     private $postalCode;
     /**
-     * @ORM\Column (name="city", type="string", length=100, nullable=true)
+     * @ORM\Column (name="city", type="String", length=100, nullable=true)
      */
     private $city;
     /**
-     * @ORM\Column (name="state", type="string", length=100, nullable=true)
+     * @ORM\Column (name="state", type="String", length=100, nullable=true)
      */
     private $state;
     /**
-     * @ORM\Column (name="country", type="string", length=100, nullable=true)
+     * @ORM\Column (name="country", type="String", length=100, nullable=true)
      */
     private $country;
 

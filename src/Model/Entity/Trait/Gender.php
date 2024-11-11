@@ -7,7 +7,7 @@ namespace Seworqs\Laminas\Model\Entity\Trait;
 trait Gender
 {
     /**
-     * @ORM\Column (name="gender", type="string" length=1)
+     * @ORM\Column (name="gender", type="String" length=1)
      */
     private $gender;
 

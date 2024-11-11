@@ -22,19 +22,19 @@ class Account
     use RecordDates;
 
     /**
-     * @ORM\Column (name="user_name", type="string", length=100, nullable=false)
+     * @ORM\Column (name="user_name", type="String", length=100, nullable=false)
      */
     private $UserName;
     /**
-     * @ORM\Column (name="user_display_name", type="string", length=100, nullable=false)
+     * @ORM\Column (name="user_display_name", type="String", length=100, nullable=false)
      */
     private $UserDisplayName;
     /**
-     * @ORM\Column (name="password", type="string", length=255, nullable=false)
+     * @ORM\Column (name="password", type="String", length=255, nullable=false)
      */
     private $Password;
     /**
-     * @ORM\Column (name="user_role", type="string", length=25, nullable=false)
+     * @ORM\Column (name="user_role", type="String", length=25, nullable=false)
      */
     private $UserRole;
 
@@ -47,7 +47,7 @@ class Account
      */
     private $BlockedOn;
     /**
-     * @ORM\Column (name="blocked_reason", type="string", length=100, nullable=true)
+     * @ORM\Column (name="blocked_reason", type="String", length=100, nullable=true)
      */
     private $BlockedReason;
     /**
@@ -61,27 +61,27 @@ class Account
 
 
     /**
-     * @ORM\Column (name="timezone", type="string", length=100, nullable=false, options={"default": "UTC"})
+     * @ORM\Column (name="timezone", type="String", length=100, nullable=false, options={"default": "UTC"})
      */
     private $Timezone;
 
     /**
-     * @ORM\Column (name="date_format", type="string", length=100, nullable=false, options={"default": "Y-m-d"})
+     * @ORM\Column (name="date_format", type="String", length=100, nullable=false, options={"default": "Y-m-d"})
      */
     private $DateFormat;
 
     /**
-     * @ORM\Column (name="time_format", type="string", length=100, nullable=false, options={"default": "H:i"})
+     * @ORM\Column (name="time_format", type="String", length=100, nullable=false, options={"default": "H:i"})
      */
     private $TimeFormat;
 
     /**
-     * @ORM\Column (name="date_time_format", type="string", length=100, nullable=false, options={"default": "Y-m-d H:i"})
+     * @ORM\Column (name="date_time_format", type="String", length=100, nullable=false, options={"default": "Y-m-d H:i"})
      */
     private $DateTimeFormat;
 
     /**
-     * @ORM\Column (name="locale", type="string", length=25, nullable=false, options={"default": "nl_NL"})
+     * @ORM\Column (name="locale", type="String", length=25, nullable=false, options={"default": "nl_NL"})
      */
     private $Locale;
 
